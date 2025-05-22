@@ -1,26 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Love Letter</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Classic Aesthetic Love Letter</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sacramento&family=Playfair+Display&display=swap');
+
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #fff0f5, #fdeef4);
+      font-family: 'Playfair Display', serif;
+      color: #4a001f;
+      padding: 2rem;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Delicate floating hearts background */
+    .floating-hearts {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: visible;
+      z-index: 0;
+    }
+
+    .floating-hearts .heart {
+      position: absolute;
+      font-size: 20px;
+      color: #d43f5b;
+      opacity: 0.75;
+      user-select: none;
+      animation-name: floatUp;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+
+    .floating-hearts .heart:nth-child(1) {
+      left: 15%;
+      animation-duration: 8s;
+      animation-delay: 0s;
+    }
+    .floating-hearts .heart:nth-child(2) {
+      left: 35%;
+      animation-duration: 6s;
+      animation-delay: 2s;
+      font-size: 16px;
+    }
+    .floating-hearts .heart:nth-child(3) {
+      left: 55%;
+      animation-duration: 7s;
+      animation-delay: 1.5s;
+      font-size: 22px;
+    }
+    .floating-hearts .heart:nth-child(4) {
+      left: 75%;
+      animation-duration: 9s;
+      animation-delay: 3s;
+      font-size: 18px;
+    }
+    .floating-hearts .heart:nth-child(5) {
+      left: 85%;
+      animation-duration: 7.5s;
+      animation-delay: 4s;
+      font-size: 20px;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(100vh) scale(1);
+        opacity: 0.75;
+      }
+      60% {
+        opacity: 0.55;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.3);
+        opacity: 0;
+      }
+    }
+
+    .letter-container {
+      position: relative;
+      background: #fff0f2;
+      border-radius: 25px;
+      padding: 3rem 2.5rem;
+      max-width: 600px;
+      width: 100%;
+      box-shadow:
+        0 6px 20px rgba(212, 63, 91, 0.3),
+        inset 0 0 40px #ffe1e6;
+      z-index: 1;
+      text-align: center;
+      animation: fadeInSlide 1.5s ease forwards;
+    }
+
+    @keyframes fadeInSlide {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      font-family: 'Sacramento', cursive;
+      font-size: 4rem;
+      margin: 0 0 1rem;
+      color: #d43f5b;
+      text-shadow: 0 2px 6px #95002466;
+    }
+
+    .decorative-line {
+      font-size: 2.5rem;
+      letter-spacing: 0.3rem;
+      color: #d43f5b;
+      opacity: 0.7;
+      margin: 1rem 0 2rem;
+      user-select: none;
+      text-shadow: 0 0 8px #f8bbc5;
+    }
+
+    p {
+      font-size: 1.25rem;
+      line-height: 1.75;
+      margin: 1rem 0 1.5rem;
+      font-weight: 400;
+      color: #6a132f;
+      text-shadow: 0 1px 3px #f9c9d4cc;
+      transition: color 0.4s ease;
+    }
+
+    p:last-of-type {
+      margin-top: 3rem;
+      font-style: italic;
+      font-weight: 600;
+    }
+
+    p:last-of-type br {
+      content: "";
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Heart icon in text */
+    .heart-inline {
+      color: #d43f5b;
+      font-size: 1.8rem;
+      vertical-align: middle;
+      animation: pulseHeart 2s infinite ease-in-out alternate;
+      margin: 0 0.3rem;
+      user-select: none;
+    }
+
+    @keyframes pulseHeart {
+      0% {
+        transform: scale(1);
+        text-shadow: 0 0 8px #f8bbc5;
+      }
+      100% {
+        transform: scale(1.2);
+        text-shadow: 0 0 14px #d43f5b;
+      }
+    }
+
+    /* Links styling if used */
+    a {
+      color: #d43f5b;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 3rem;
+      }
+      .decorative-line {
+        font-size: 2rem;
+        letter-spacing: 0.2rem;
+      }
+      p {
+        font-size: 1.1rem;
+      }
+      .letter-container {
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="heart" onclick="showLetter()">
-            ❤️
-        </div>
-        <div class="envelope" id="envelope">
-            💌
-            <div class="letter" id="letter">
-                <p>My Dearest,</p>
-                <p>Your love is my guiding light,</p>
-                <p>Forever yours,</p>
-                <p>Your Love</p>
-            </div>
-        </div>
-    </div>
-    <script src="script.js"></script>
+  <div class="floating-hearts" aria-hidden="true">
+    <div class="heart">❤</div>
+    <div class="heart">❤</div>
+    <div class="heart">❤</div>
+    <div class="heart">❤</div>
+    <div class="heart">❤</div>
+  </div>
+
+  <article class="letter-container" role="main" aria-label="Love Letter">
+    <h1>My Aisah</h1>
+    <div class="decorative-line" aria-hidden="true">❤️ &nbsp; ❤️ &nbsp; ❤️ &nbsp; ❤️ &nbsp; ❤️</div>
+    <p>
+      From the moment our eyes met, my heart knew that you were the one<span class="heart-inline">❤</span>. 
+      Your smile lights up my darkest days, and your laughter is the sweetest melody I have ever heard<span class="heart-inline">❤</span>. 
+      Every moment spent with you is a treasure I hold dear.
+    </p>
+    <p>
+      I cherish the way you understand me, the way you support me, and the way you love me unconditionally<span class="heart-inline">❤</span>. 
+      You are my confidant, my partner, and my greatest joy<span class="heart-inline">❤</span>. 
+      With you, I feel complete, and I am grateful for every second we share.
+    </p>
+    <p>
+      As we continue this beautiful journey together, I promise to love you fiercely and to stand by your side through thick and thin<span class="heart-inline">❤</span>. 
+      You are my heart, my soul, and my forever<span class="heart-inline">❤</span>. 
+      I love you more than words can express.
+    </p>
+    <div class="decorative-line" aria-hidden="true">❤️ &nbsp; ❤️ &nbsp; ❤️ &nbsp; ❤️ &nbsp; ❤️</div>
+    <p>
+      Forever yours,<br />
+      <em>[Kerby]</em>
+    </p>
+  </article>
 </body>
 </html>
